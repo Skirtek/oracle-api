@@ -19,9 +19,9 @@ app.post("/backup", async (req, res) => {
   try {
     const data = req.body;
 
-    const result = await baseApi.post("https://httpbin.org/post", { data });
+    const result = await baseApi.post("https://rbd-postgresql.herokuapp.com/historicalData/add", { data });
 
-    res.json(result.data.json.data);
+    res.status(200).send("Status OK");
   } catch (err) {
     res.status(500);
   }
